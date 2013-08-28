@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-29 01:07+0200\n"
+"PO-Revision-Date: 2013-08-29 01:20+0100\n"
+"Last-Translator: Jesús Ángel del Pozo <jesusangel.pozo@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wc-4b-pasat.php:70
+msgid "4B PASAT Internet"
+msgstr "4B PASAT Internet"
+
+#: wc-4b-pasat.php:71
+msgid "Pay with credit card using 4B PASAT Internet"
+msgstr "Pago con tarjeta usando la pasarela 4B"
+
+#: wc-4b-pasat.php:178
+msgid "Enable/Disable"
+msgstr "Activar/Desactivar"
+
+#: wc-4b-pasat.php:180
+msgid "Enable 4B-Pasat"
+msgstr "Activar 4B-Pasat"
+
+#: wc-4b-pasat.php:184
+msgid "Title"
+msgstr "Título"
+
+#: wc-4b-pasat.php:186
+msgid "This controls the title which the user sees during checkout."
+msgstr "Esto controla el título que el usuario ve durante el pago"
+
+#: wc-4b-pasat.php:187
+msgid "4B-Pasat"
+msgstr "4B-Pasat"
+
+#: wc-4b-pasat.php:190
+msgid "Owner name"
+msgstr "Nombre del propietario"
+
+#: wc-4b-pasat.php:192
+msgid "Name and surname of the owner."
+msgstr "Nombre y apellidos del propietario"
+
+#: wc-4b-pasat.php:196
+msgid "Commerce name"
+msgstr "Nombre de la tienda"
+
+#: wc-4b-pasat.php:198
+msgid "The commerce name."
+msgstr "El nombre de la tienda."
+
+#: wc-4b-pasat.php:202
+msgid "Description"
+msgstr "Descripción"
+
+#: wc-4b-pasat.php:204
+msgid "This controls the description which the user sees during checkout."
+msgstr "Esto controla la descripción que el usuario ve durante el pago."
+
+#: wc-4b-pasat.php:205
+msgid "Pay with your credit card via 4B-Pasat"
+msgstr "Pague con su tarjeta a través de la pasarela de 4B"
+
+#: wc-4b-pasat.php:208
+msgid "Store code"
+msgstr "Código de la tienda"
+
+#: wc-4b-pasat.php:210
+msgid "Please enter your store code. You'll find it in 4B gateway"
+msgstr "Por favor, introduzca el código de su tienda. Lo encontrará en la configuración de la pasarela 4B."
+
+#: wc-4b-pasat.php:214
+msgid "Allowed IPs (simulation mode)"
+msgstr "IPs autorizadas (modo de pruebas)"
+
+#: wc-4b-pasat.php:216
+#: wc-4b-pasat.php:222
+msgid "Enter allowed IPs for notifications. Separate them using commas"
+msgstr "Introduzca las IPs autorizadas para las notificaciones. Sepárelas con comas."
+
+#: wc-4b-pasat.php:220
+msgid "Allowed IPs (active mode)"
+msgstr "IPs autorizadas (modo producción)"
+
+#: wc-4b-pasat.php:226
+msgid "Language"
+msgstr "Idioma"
+
+#: wc-4b-pasat.php:228
+msgid "Please enter the gateway language."
+msgstr "Por favor, seleccione el idioma de la pasarela de pago."
+
+#: wc-4b-pasat.php:233
+msgid "Currency identifier"
+msgstr "Identificador de moneda"
+
+#: wc-4b-pasat.php:235
+msgid "Please enter your 4B-Pasat currency identifier; this is needed in order to take payment."
+msgstr "Por favor, seleccione la moneda; es necesario para realizar el pago."
+
+#: wc-4b-pasat.php:240
+msgid "URLs"
+msgstr "URLs"
+
+#: wc-4b-pasat.php:242
+msgid "You should copy this URLs and paste them into 4B gateway configuration. Do not edit them!"
+msgstr "Copie y pegue estas URLs y péguelas en la configuración de la pasarela 4B. ¡No las edite!"
+
+#: wc-4b-pasat.php:245
+msgid "Home URL"
+msgstr "URL Home"
+
+#: wc-4b-pasat.php:247
+#: wc-4b-pasat.php:253
+#: wc-4b-pasat.php:259
+#: wc-4b-pasat.php:265
+msgid "Do not edit this field! Copy and paste it in 4B configuration"
+msgstr "!No edite este campo! Copielo y péguelo en la configuración de la pasarela 4B"
+
+#: wc-4b-pasat.php:251
+msgid "Order details URL"
+msgstr "URL que devuelve el desglose de la compra"
+
+#: wc-4b-pasat.php:257
+msgid "Completed (atuhorized) URL"
+msgstr "URL que graba el resultado en la BD del comercio (TRANSACCIONES AUTORIZADAS)"
+
+#: wc-4b-pasat.php:263
+msgid "Not completed (denied) URL"
+msgstr "URL que graba el resultado en la BD del comercio (TRANSACCIONES DENEGADAS)"
+
+#: wc-4b-pasat.php:269
+msgid "Gateway Testing"
+msgstr "Pruebas de la pasarela"
+
+#: wc-4b-pasat.php:274
+msgid "4B-Pasat sandbox"
+msgstr "Modo de pruebas 4B"
+
+#: wc-4b-pasat.php:276
+msgid "Enable 4B-Pasat sandbox"
+msgstr "Activar el modo de pruebas para 4B"
+
+#: wc-4b-pasat.php:278
+msgid "4B-Pasat sandbox can be used to test payments."
+msgstr "El modo de pruebas de 4B puede usarse para probar el sistema de pagos."
+
+#: wc-4b-pasat.php:281
+msgid "Debug Log"
+msgstr "Registro de acciones"
+
+#: wc-4b-pasat.php:283
+msgid "Enable logging"
+msgstr "Activar el registro"
+
+#: wc-4b-pasat.php:285
+msgid "Log 4B-Pasat events, inside <code>woocommerce/logs/4b_pasat.txt</code>"
+msgstr "Registra los eventos de la pasarela 4B en <code>woocommerce/logs/4b_pasat.txt</code>"
+
+#: wc-4b-pasat.php:389
+msgid "Thank you for your order. We are now redirecting you to 4B-Pasat to make payment."
+msgstr "Gracias por su compra. Ahora será rediriguido a la pasarela de 4B para realizar el pago."
+
+#: wc-4b-pasat.php:410
+msgid "Pay via 4B-Pasat"
+msgstr "Pagar a través de 4B"
+
+#: wc-4b-pasat.php:410
+msgid "Cancel order &amp; restore cart"
+msgstr "Cancelar la compra %amp; vaciar el carrito"
+
+#: wc-4b-pasat.php:467
+msgid "Thank you for your order, please click the button below to pay with 4B-Pasat."
+msgstr "Gracias por su compra. Por favor, pulse sobre el botón siguiente para pagar con 4B."
+
+#: wc-4b-pasat.php:650
+#, php-format
+msgid ""
+"4B-Pasat payment completed\n"
+"Payment date: %s\n"
+"Transaction type: %s\n"
+"Authorisation code: %s\n"
+"Transaction ID: %s"
+msgstr ""
+"Pago 4B completado\n"
+"Fecha de pago: %s\n"
+"Tipo de transacción: %s\n"
+"Código de autorización: %s\n"
+"ID de la transacción: %s"
+
+#: wc-4b-pasat.php:657
+#, php-format
+msgid "Payment via 4b_pasat failed with code %s (%s)."
+msgstr "El pago mediante 4B falló con el código %s (%s)."
+
