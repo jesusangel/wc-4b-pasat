@@ -63,7 +63,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				global $woocommerce;
 		
 				$this->id				= '4b_pasat';
-				$this->icon 			= '/wp-content/plugins/' . dirname( plugin_basename( __FILE__ ) ) . '/assets/images/icons/cuatrob.png'; 
+				$this->icon 			= home_url() . '/wp-content/plugins/' . dirname( plugin_basename( __FILE__ ) ) . '/assets/images/icons/cuatrob.png'; 
 				$this->has_fields 		= false;
 				$this->liveurl 			= 'https://tpv.4b.es/tpvv/teargral.exe';
 				$this->testurl 			= 'https://tpv2.4b.es/simulador/teargral.exe';
