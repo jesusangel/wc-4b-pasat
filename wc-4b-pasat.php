@@ -63,7 +63,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				global $woocommerce;
 		
 				$this->id				= '4b_pasat';
-				$this->icon 			= '/wp-content/plugins/' . dirname( plugin_basename( __FILE__ ) ) . '/assets/images/icons/cuatrob.png'; 
+				$this->icon 			= home_url() . '/wp-content/plugins/' . dirname( plugin_basename( __FILE__ ) ) . '/assets/images/icons/cuatrob.png'; 
 				$this->has_fields 		= false;
 				$this->liveurl 			= 'https://tpv.4b.es/tpvv/teargral.exe';
 				$this->testurl 			= 'https://tpv2.4b.es/simulador/teargral.exe';
@@ -485,16 +485,22 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		        if ( 'yes' == $this->debug )
 		        	$this->log->add( '4b_pasat', 'Received data: ' . print_r($received_values, true) );
 		        
-		        // Check for the store code
+				// 	Check for the store code
 	        	if ( $received_values['store'] != $this->store ) {
+	        		if ( 'yes' == $this->debug )
+	        			$this->log->add( '4b_pasat', "Received store code does not match" );
+	        		
 	        		return false;
 	        	}
 	        	
-	        	// Check for allowed IPs
+				// Check for allowed IPs
 	        	if ( false == $this->_check_source_ip() ) {
+	        		if ( 'yes' == $this->debug )
+	        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['SERVER_ADDR']} not allowed" );
+	        			
 	        		return false;
 	        	}
-	        	
+		        	        	
 	        	// TODO: check mac
 		        /*
 		        $string = "{$received_values['Ds_Amount']}{$received_values['Ds_Order']}{$received_values['Ds_MerchantCode']}{$received_values['Ds_Currency']}{$received_values['Ds_Response']}{$this->secret_key}";
@@ -531,11 +537,17 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		        	
 		        	// Check for the store code
 		        	if ( $_GET['store'] != $this->store ) {
+		        		if ( 'yes' == $this->debug )
+		        			$this->log->add( '4b_pasat', "Received store code does not match" );
+		        		
 		        		return false;
 		        	}
 		        	
 					// Check for allowed IPs
 		        	if ( false == $this->_check_source_ip() ) {
+		        		if ( 'yes' == $this->debug )
+		        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['SERVER_ADDR']} not allowed" );
+		        			
 		        		return false;
 		        	}
 		        	
