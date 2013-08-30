@@ -303,7 +303,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		    		return true;
 		    	}
 		    	
-		    	if ( in_array( $_SERVER['SERVER_ADDR'], $ips ) ) {
+		    	if ( 'yes' == $this->debug )
+					$this->log->add( '4b_pasat', 'Comprobando IPs autorizadas: '. join( ', ', $ips ) );
+		    	
+		    	if ( in_array( $_SERVER['SERVER_ADDR'], array_map('trim', $ips) ) ) {
 		    		return true;
 	    		} else {
 	    			return false;
