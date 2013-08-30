@@ -306,7 +306,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		    	if ( 'yes' == $this->debug )
 					$this->log->add( '4b_pasat', 'Comprobando IPs autorizadas: '. join( ', ', $ips ) );
 		    	
-		    	if ( in_array( $_SERVER['SERVER_ADDR'], array_map('trim', $ips) ) ) {
+		    	if ( in_array( $_SERVER['REMOTE_ADDR'], array_map('trim', $ips) ) ) {
 		    		return true;
 	    		} else {
 	    			return false;
@@ -499,7 +499,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				// Check for allowed IPs
 	        	if ( false == $this->_check_source_ip() ) {
 	        		if ( 'yes' == $this->debug )
-	        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['SERVER_ADDR']} not allowed" );
+	        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['REMOTE_ADDR']} not allowed" );
 	        			
 	        		return false;
 	        	}
@@ -549,7 +549,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					// Check for allowed IPs
 		        	if ( false == $this->_check_source_ip() ) {
 		        		if ( 'yes' == $this->debug )
-		        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['SERVER_ADDR']} not allowed" );
+		        			$this->log->add( '4b_pasat', "Source IP {$_SERVER['REMOTE_ADDR']} not allowed" );
 		        			
 		        		return false;
 		        	}
@@ -594,7 +594,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		
 				if ( isset($_GET['details']) && 1 == $_GET['details'] ) {
 					if ( 'yes' == $this->debug )
-		        		$this->log->add( '4b_pasat', "Received order details request.\nFrom: {$_SERVER['SERVER_ADDR']}\nData:\n" . print_r($_GET, true) );
+		        		$this->log->add( '4b_pasat', "Received order details request.\nFrom: {$_SERVER['REMOTE_ADDR']}\nData:\n" . print_r($_GET, true) );
 		        		
 		        	$order_details = $this->get_order_details( $_GET['order'], $_GET['store'] );
 		        	
