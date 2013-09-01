@@ -639,7 +639,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			        }
 		
 			        if ( 'yes' == $this->debug )
-			        	$this->log->add( '4b_pasat', 'Payment status: ' . $data['result'] . '. 0 -> authorized, 1 -> failed');
+			        	$this->log->add( '4b_pasat', 'Payment status: ' . $data['result'] . '. 0 -> authorized, 2 -> failed');
 				      
 			        // We are here so lets check status and do actions
 			        $result = (int) $data['result'];
@@ -668,6 +668,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			            	if ( 'yes' == $this->debug )
 			            		$this->log->add( '4b_pasat', 'Payment complete.' );
 			        } else {
+			        	if ( 'yes' == $this->debug )
+			            	$this->log->add( '4b_pasat', 'Payment failed.' );
+			            		
 			        	// Order failed
 						$order->update_status('failed', sprintf(__('Payment via 4b_pasat failed with code %s (%s).', 'wc_4b_pasat_payment_gateway'), $data['coderror'], $data['deserror'] ) );
 			        }
