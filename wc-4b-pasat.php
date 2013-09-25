@@ -19,7 +19,7 @@
  * Plugin Name: Pasarela de pago 4B PASAT Internet para WooCommerce
  * Plugin URI: http://tel.abloque.com/4b_pasat.html
  * Description: Pasarela de pago 4B PASAT Internet para WooCommerce
- * Version: 0.1
+ * Version: 0.2
  * Author: Jesús Ángel del Pozo Domínguez
  * Author URI: http://tel.abloque.com
  * License: GPL3
@@ -101,13 +101,18 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					$this->log = $woocommerce->logger();
 		
 				// Actions
+				if ( version_compare( WOOCOMMERCE_VERSION, '2.0', '<' ) ) {
+					// Check for gateway messages using WC 1.X format
+					add_action( 'init', array( $this, 'check_notification' ) );
+					add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
+				} else {
+					// Payment listener/API hook (WC 2.X) 
+					add_action( 'woocommerce_api_' . strtolower( get_class( $this ) ), array( $this, 'check_notification' ) );
+					add_action('woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
+				}
 				add_action('valid-4b_pasat-standard-notification', array( $this, 'successful_request' ) );
 				add_action('woocommerce_receipt_4b_pasat', array( $this, 'receipt_page' ) );
-				add_action('woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 				
-				// Payment listener/API hook
-				add_action( 'woocommerce_api_wc_4b_pasat', array( $this, 'check_notification' ) );
-		
 				if ( !$this->is_valid_for_use() ) $this->enabled = false;
 		    }
 		    
@@ -118,12 +123,12 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	         * @return void
 	         */
 	        function load_plugin_textdomain() {
-	                // Note: the first-loaded translation file overrides any following ones if the same translation is present
-	                $locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce' );
-	                $variable_lang = ( get_option( 'woocommerce_informal_localisation_type' ) == 'yes' ) ? 'informal' : 'formal';
-	                load_textdomain( 'wc_4b_pasat_payment_gateway', WP_LANG_DIR.'/wc_4b_pasat_payment_gateway/wc_4b_pasat_payment_gateway-'.$locale.'.mo' );
-	                load_plugin_textdomain( 'wc_4b_pasat_payment_gateway', false, dirname( plugin_basename( __FILE__ ) ).'/languages/'.$variable_lang );
-	                load_plugin_textdomain( 'wc_4b_pasat_payment_gateway', false, dirname( plugin_basename( __FILE__ ) ).'/languages' );
+                // Note: the first-loaded translation file overrides any following ones if the same translation is present
+                $locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce' );
+                $variable_lang = ( get_option( 'woocommerce_informal_localisation_type' ) == 'yes' ) ? 'informal' : 'formal';
+                load_textdomain( 'wc_4b_pasat_payment_gateway', WP_LANG_DIR.'/wc_4b_pasat_payment_gateway/wc_4b_pasat_payment_gateway-'.$locale.'.mo' );
+                load_plugin_textdomain( 'wc_4b_pasat_payment_gateway', false, dirname( plugin_basename( __FILE__ ) ).'/languages/'.$variable_lang );
+                load_plugin_textdomain( 'wc_4b_pasat_payment_gateway', false, dirname( plugin_basename( __FILE__ ) ).'/languages' );
 	        }
 		
 		
@@ -285,7 +290,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 									'description' => __( 'Log 4B-Pasat events, inside <code>woocommerce/logs/4b_pasat.txt</code>' ),
 								)
 					);
-		
 		    }
 
 		    /**
@@ -668,11 +672,11 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			            	if ( 'yes' == $this->debug )
 			            		$this->log->add( '4b_pasat', 'Payment complete.' );
 			        } else {
-			        	if ( 'yes' == $this->debug )
-			            	$this->log->add( '4b_pasat', 'Payment failed.' );
-			            		
 			        	// Order failed
-						$order->update_status('failed', sprintf(__('Payment via 4b_pasat failed with code %s (%s).', 'wc_4b_pasat_payment_gateway'), $data['coderror'], $data['deserror'] ) );
+			        	$message = sprintf( __( 'Payment via 4b_pasat failed with code %s (%s).', 'wc_4b_pasat_payment_gateway'), $data['coderror'], $data['deserror'] ); 
+						$order->update_status('failed', $message );
+						if ( 'yes' == $this->debug )
+			            	$this->log->add( '4b_pasat', 'Payment failed.' );
 			        }
 			               
 					exit;

@@ -4,7 +4,7 @@ Tags: ecommerce, e-commerce, commerce, wordpress woocommerce, payment, plugin, g
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jesusangel.delpozo@gmail.com&item_name=Donation+for+WC-4B-Pasat
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1
+Stable tag: 2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,7 +52,7 @@ If on the off chance you do encounter issues with the shop/category pages after 
 
 = Does this plugin work for WooCommerce 1.6? =
 
-No. The API changed between WooCommerce 1.6 and WooCommerce 2.x and there is only a plugin versión form WooCommerce 2.x. I apologize for the inconvenience.
+Yes. It works for both WooCommerce 1.6 and 2.x+ versions.
 
 = Where can I find WC-4B-PASAT documentation and user guides =
 
@@ -77,6 +77,9 @@ Yes you can! Join in on our [GitHub repository](http://github.com/jesusangel/wc-
 3. WooCommerce sales reports
 
 == Changelog ==
+
+= 0.2 - 26/09/2013 =
+* Updated to work on both 1.6 and 2.x WooCommerce versions.
 
 = 0.1 - 29/08/2013 =
 * Initial version
