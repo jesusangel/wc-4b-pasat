@@ -97,7 +97,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				$this->ips_active		= explode( ',', $this->settings['ips_active'] );		
 		
 				// Logs
-				if ( 'yes' == $this->debug )
+				if ( 'yes' == $this->debug ) {
 					if ( version_compare( WOOCOMMERCE_VERSION, '2.0', '<' ) ) {
 						$this->log = $woocommerce->logger();
 					} else {
