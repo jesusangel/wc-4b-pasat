@@ -3,8 +3,8 @@ Contributors: jesusangel
 Tags: ecommerce, e-commerce, commerce, wordpress woocommerce, payment, plugin, gateway, 4B, PASAT
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jesusangel.delpozo@gmail.com&item_name=Donation+for+WC-4B-Pasat
 Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 0.2
+Tested up to: 4.0
+Stable tag: 0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,9 @@ Yes you can! Join in on our [GitHub repository](http://github.com/jesusangel/wc-
 3. WooCommerce sales reports
 
 == Changelog ==
+
+= 0.3 - 12/02/2015 =
+* Removed deprecated logger method
 
 = 0.2 - 26/09/2013 =
 * Updated to work on both 1.6 and 2.x WooCommerce versions.

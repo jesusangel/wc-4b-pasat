@@ -19,7 +19,7 @@
  * Plugin Name: Pasarela de pago 4B PASAT Internet para WooCommerce
  * Plugin URI: http://tel.abloque.com/4b_pasat.html
  * Description: Pasarela de pago 4B PASAT Internet para WooCommerce
- * Version: 0.2
+ * Version: 0.3
  * Author: Jesús Ángel del Pozo Domínguez
  * Author URI: http://tel.abloque.com
  * License: GPL3
@@ -98,7 +98,12 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		
 				// Logs
 				if ( 'yes' == $this->debug )
-					$this->log = $woocommerce->logger();
+					if ( version_compare( WOOCOMMERCE_VERSION, '2.0', '<' ) ) {
+						$this->log = $woocommerce->logger();
+					} else {
+						$this->log = new WC_Logger();
+					}
+				}
 		
 				// Actions
 				if ( version_compare( WOOCOMMERCE_VERSION, '2.0', '<' ) ) {
